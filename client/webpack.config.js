@@ -26,7 +26,7 @@ module.exports = () => {
       new MiniCssExtractPlugin(),
         new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'src-sw.js',
+        // swDest: 'src-sw.js',
        
       }),   
       new WebpackPwaManifest
@@ -38,20 +38,14 @@ module.exports = () => {
         crossorigin: 'use-credentials',
         start_url: "./",
         publicPath: "./",
+        fingerprints: false,
         icons: [
           {
-            src: path.resolve('src/images/logo.png'),
+            src: 'src/images/logo.png',
+            destination: path.join('assets', 'icons'),
             sizes: [96, 128, 192, 256, 384, 512]
           },
-          {
-            src: path.resolve('src/images/logo.png'),
-            size: '1024x1024' 
-          },
-          {
-            src: path.resolve('src/images/logo.png'),
-            size: '1024x1024',
-            purpose: 'maskable'
-          }, 
+        
      
         ]
     
